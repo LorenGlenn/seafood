@@ -1,2 +1,24 @@
-<h1>Dishes#index</h1>
-<p>Find me in app/views/dishes/index.html.erb</p>
+<h1 class="well">Son of Cod!</h1>
+
+<div class="row">
+  <% if @dishes.any? %>
+  <% @dishes.each do |d| %>
+  <div class="col-md-3">
+    <%= link_to image_tag(d.image), dish_path(d) %>
+    <br>
+    Dish: <%= link_to d.name, dish_path(d) %>
+    <br>
+    Price: $<%= d.cost %>
+  </div>
+  <% end %>
+  <% else %>
+  <p>
+    There are no dishes yet!
+  </p>
+  <% end %>
+</div>
+<div class="admin_add">
+  <% if current_user.admin? %>
+       Click <%= link_to "here", new_dish_path %> to add a dish.
+  <% end %>
+</div>
