@@ -1,9 +1,13 @@
-<h1 class="well">Son of Cod!</h1>
-
+<div class="panel panel-default">
+  <div class="panel-heading"><h2>Welcome to Son of Cod!</h2></div>
+  <div class="panel-body"><h3>A local seafood restaurant where the reviews decide what gets on the menu! Leave reviews and likes,<br> the <strong>top 5 dishes get on the menu!</strong></h3></div>
+</div>
+<br>
+<h2>Current Menu:</h2>
 <div class="row">
   <% if @dishes.any? %>
-    <% @dishes.each do |d| %>
-      <div class="col-md-3">
+    <% @dishes.first(5).each do |d| %>
+      <div class="col-md-3 well">
         <%= link_to image_tag(d.image), dish_path(d) %>
         <br>
         Dish: <%= link_to d.name, dish_path(d) %>

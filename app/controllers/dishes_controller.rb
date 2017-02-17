@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   def index
-  @dishes = Dish.all
+  @dishes = Dish.all.order(:rating)
 end
 
 def show
