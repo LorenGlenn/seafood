@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   def index
-  @dishes = Dish.all.order(:rating)
+  @dishes = Dish.all.order(rating: :desc)
 end
 
 def show
@@ -8,12 +8,6 @@ def show
   if params[:upvote]
     @dish.liked_by current_user
     @dish.rating =+ 1
-    @dish.save
-    render :show
-  end
-  if params[:downvote]
-    @dish.disliked_by current_user
-    @dish.rating =- 1
     @dish.save
     render :show
   end

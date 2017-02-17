@@ -1,12 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-heading"><h2>Welcome to Son of Cod!</h2></div>
-  <div class="panel-body"><h3>A local seafood restaurant where the reviews decide what gets on the menu! Leave reviews and likes,<br> the <strong>top 5 dishes get on the menu!</strong></h3></div>
+  <div class="panel-body"><h3>A local seafood restaurant where the reviews decide what gets on the menu! Leave reviews and likes,<br> the <strong>top 4 dishes get on the menu!</strong></h3></div>
 </div>
 <br>
 <h2>Current Menu:</h2>
 <div class="row">
   <% if @dishes.any? %>
-    <% @dishes.first(5).each do |d| %>
+    <% @dishes.first(4).each do |d| %>
       <div class="col-md-3 well">
         <%= link_to image_tag(d.image), dish_path(d) %>
         <br>
@@ -26,5 +26,20 @@
 <div class="admin_add">
   <% if current_user.admin? %>
        Click <%= link_to "here", new_dish_path %> to add a dish.
+  <% end %>
+  <hr>
+  <br>
+  <h2>Full list of Dishes, vote for your favorite and it might make it on the menu:</h2>
+  <br>
+  <% @dishes.each do |d| %>
+    <div class="col-md-3 well">
+      <%= link_to image_tag(d.image), dish_path(d) %>
+      <br>
+      Dish: <%= link_to d.name, dish_path(d) %>
+      <br>
+      Price: $<%= d.cost %>
+      <br>
+      Votes: <%= d.rating %>
+    </div>
   <% end %>
 </div>
