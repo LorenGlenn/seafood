@@ -5,6 +5,7 @@ class CreateDishes < ActiveRecord::Migration[5.0]
       t.integer :cost
       t.string :image
       t.integer :rating
+      
       t.timestamps
     end
   end
