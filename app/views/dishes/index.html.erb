@@ -13,6 +13,8 @@
         Dish: <%= link_to d.name, dish_path(d) %>
         <br>
         Price: $<%= d.cost %>
+        <br>
+        Votes: <%= d.rating %>
       </div>
     <% end %>
   <% else %>

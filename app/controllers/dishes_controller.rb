@@ -5,6 +5,18 @@ end
 
 def show
   @dish = Dish.find(params[:id])
+  if params[:upvote]
+    @dish.liked_by current_user
+    @dish.rating =+ 1
+    @dish.save
+    render :show
+  end
+  if params[:downvote]
+    @dish.disliked_by current_user
+    @dish.rating =- 1
+    @dish.save
+    render :show
+  end
 end
 
 def new
@@ -13,6 +25,7 @@ end
 
 def create
   @dish = Dish.new(dish_params)
+  @dish.rating = 0
   if @dish.save
     flash[:notice] = "Dish succesfully added!"
     redirect_to dishes_path
