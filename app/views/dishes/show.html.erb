@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><h1>Details for <%= @dish.name %></h1></div>
   <div class="panel-body">
-    <%= image_tag @dish.image, :class => "dish-images" %> <br>
+    <%= image_tag d.image, :class => "dish-images" %> <br>
     <h3>Price:</h3> <h4>$<%= @dish.cost %></h4> <br>
     <span class="vote-number">Current Score: <%= @dish.get_likes.size %></span> |
     <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> <%= link_to "Vote", :upvote => @dish.id %>

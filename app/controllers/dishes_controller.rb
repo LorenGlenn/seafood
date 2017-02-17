@@ -53,6 +53,6 @@ end
 
 private
 def dish_params
-  params.require(:dish).permit(:name, :cost, :country, :image)
+  params.require(:dish).permit(:name, :cost, :avatar)
 end
 end

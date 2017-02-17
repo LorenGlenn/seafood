@@ -1,7 +1,7 @@
 
 
 <div class="dish-form">
-<%= form_for @dish do |f| %>
+<%= form_for @dish, url: dishes_path, html: { multipart: true } do |f| %>
   <%= f.text_field :name, :class => 'form-control', :placeholder => "name" %>
   <%= f.text_field :cost, :class => 'form-control', :placeholder => "cost"%>
   <%= f.text_field :image, :class => 'form-control', :placeholder => "image url"%>
