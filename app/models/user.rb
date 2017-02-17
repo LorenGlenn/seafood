@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   after_create :send_welcome_message
 
+  validates_presence_of :email
+
   def send_welcome_message
     CustomerMailer.welcome_email(self).deliver_now
   end

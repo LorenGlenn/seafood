@@ -4,6 +4,11 @@
 body {
   padding-top: 50px;
   text-align: center;
+  background-image: url('http://previews.123rf.com/images/melazerg/melazerg1305/melazerg130500042/19687692-seafood-seamless-background-with-seafood-on-orange-background-Stock-Vector.jpg');
+}
+.body-container {
+  background-color: sienna;
+  min-height: 100vh;
 }
 
 img {
@@ -18,4 +23,8 @@ img {
 
 #add-review {
   padding-top: 50px;
+}
+
+.notice, .alert {
+  margin-top: 15px;
 }

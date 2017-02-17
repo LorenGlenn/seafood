@@ -23,6 +23,7 @@ group :development, :test do
   gem "letter_opener"
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
+  gem 'capybara'
 end
 
 group :development do
