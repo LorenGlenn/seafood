@@ -1,2 +1,23 @@
-<h1>Dishes#show</h1>
-<p>Find me in app/views/dishes/show.html.erb</p>
+<div class="panel panel-primary">
+  <div class="panel-heading"><h1>Details for <%= @dish.name %></h1></div>
+  <div class="panel-body">
+    <%= image_tag @dish.image, :class => "dish-images" %> <br>
+    <h3>Price:</h3> <h4>$<%= @dish.cost %></h4> <br>
+
+    <% if @dish.reviews.any? %>
+      <% @dish.reviews.each do |d| %>
+        <div class="col-md-3">
+          <%= d.content %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>
+        Click <%= link_to "here", new_dish_review_path(@dish) %> to add a review.
+      </p>
+    <% end %>
+    <% if current_user.admin? %>
+      <%= link_to "Edit", edit_dish_path(@dish) %> |
+      <%= link_to "Delete", dish_path(@dish),:data => {:confirm => "Are you sure?",:method => "delete"} %>
+    <% end %>
+  </div>
+</div>
