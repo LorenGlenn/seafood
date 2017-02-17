@@ -1,0 +1,7 @@
+<div class="dish-form">
+<%= form_for [@dish, @review] do |f| %>
+  <%= f.text_field :content, :class => 'form-control', :placeholder => "review" %>
+  <%= f.submit 'Save', :class => "btn btn-primary"%>
+<% end %>
+
+</div>
